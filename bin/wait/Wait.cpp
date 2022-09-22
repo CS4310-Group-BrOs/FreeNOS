@@ -1,4 +1,7 @@
 #include <Types.h>
+#include <FreeNOS/User.h>
+#include "sys/wait.h"
+#include "sys/types.h"
 #include <Macros.h>
 #include <stdio.h>
 #include <unistd.h>
