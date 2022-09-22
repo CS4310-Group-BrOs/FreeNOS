@@ -1,9 +1,12 @@
+#include <Types.h>
+#include <Macros.h>
 #include <stdio.h>
 #include <unistd.h>
 #include "Wait.h"
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <ProcessClient.h>
 
 Wait::Wait(int argc, char **argv)
     : POSIXApplication(argc, argv)
