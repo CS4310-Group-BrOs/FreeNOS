@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include "Sleep.h"
 
 Wait::Wait(int argc, char **argv)
     : POSIXApplication(argc, argv)
