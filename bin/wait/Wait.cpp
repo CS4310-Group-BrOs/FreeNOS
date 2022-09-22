@@ -36,7 +36,7 @@ Wait::Result Wait::exec()
     else {
         char line[28];
             snprintf(line, sizeof(line),
-                    "No %3d process ID is found",
+                    "No %3d process ID is found\n",
                      pid);
             out << line;
         
