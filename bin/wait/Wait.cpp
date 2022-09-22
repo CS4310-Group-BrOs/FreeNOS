@@ -25,6 +25,7 @@ Wait::Result Wait::exec()
     String out;
     ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
     
+    ProcessClient::Info info;
     const ProcessClient::Result result = process.processInfo(pid, info);
     
     if (result == ProcessClient::Success) {
