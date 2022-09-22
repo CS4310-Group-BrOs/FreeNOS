@@ -15,5 +15,29 @@ Wait::~Wait()
 
 Wait::Result Wait::exec()
 {
+    const ProcessClient process;
+    String out;
+    ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
+    
+    const ProcessClient::Result result = process.processInfo(pid, info);
+    
+    if (result == ProcessClient::Success) {
+        waitpid(pid);        
+    }
+    
+    else {
+        char line[28];
+            snprintf(line, sizeof(line),
+                    "No %3d process ID is found",
+                     pid);
+            out << line;
+        
+        write(1, *out, out.length());
+        
+    }
+    
+    // Done
+    return Success;
+        
 
 }
