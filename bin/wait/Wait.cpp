@@ -1,7 +1,4 @@
-#include <Types.h>
-#include <FreeNOS/User.h>
 #include "sys/wait.h"
-#include "sys/types.h"
 #include <Macros.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -26,13 +23,14 @@ Wait::Result Wait::exec()
 {
     const ProcessClient process;
     String out;
+    int status;
     ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
     
     ProcessClient::Info info;
     const ProcessClient::Result result = process.processInfo(pid, info);
     
     if (result == ProcessClient::Success) {
-        waitpid(pid);        
+        waitpid(pid, &status, 0);        
     }
     
     else {
