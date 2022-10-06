@@ -22,26 +22,18 @@ Wait::~Wait()
 Wait::Result Wait::exec()
 {
     const ProcessClient process;
-    String out;
-    int status;
     ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
     
     ProcessClient::Info info;
     const ProcessClient::Result result = process.processInfo(pid, info);
     
     if (result == ProcessClient::Success) {
-        waitpid(pid, &status, 0);        
-    }
-    
-    else {
-        char line[28];
-            snprintf(line, sizeof(line),
-                    "No %3d process ID is found\n",
-                     pid);
-            out << line;
-        
-        write(1, *out, out.length());
-        
+        waitpid(pid, 0, 0);        
+    } else {
+        // use FreeNOS convention for printing errors
+        // (see Sleep.cpp:43,50 and ListFiles.cpp:88,98,140 for examples)
+        ERROR("No process of ID '" << arguments().get("PROCESS_ID") << "' is found")
+        return InvalidArgument;
     }
     
     // Done
