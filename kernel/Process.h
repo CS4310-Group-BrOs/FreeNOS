@@ -71,6 +71,12 @@ class Process
         Stopped
     };
 
+    enum Priority {
+      Min = 1,
+      Default = 3,
+      Max = 5
+    };
+
   public:
 
     /**
@@ -111,6 +117,11 @@ class Process
      * Get wait result
      */
     uint getWaitResult() const;
+
+    /**
+     * Get priority level
+     */
+    Priority getPriority();
 
     /**
      * Get process shares.
@@ -257,6 +268,9 @@ class Process
 
     /** Wait exit result of the other Process. */
     uint m_waitResult;
+
+    /** Priority level*/
+    Priority m_priority;
 
     /** Privilege level */
     bool m_privileged;
