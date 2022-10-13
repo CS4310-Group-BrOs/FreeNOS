@@ -11,29 +11,28 @@
 /**
  * Change the scheduling priority of a process.
  */
-class Renice : public POSIXApplication
-{
-  public:
+class Renice : public POSIXApplication {
+    public:
 
-    /**
-     * Constructor
-     *
-     * @param argc Argument count
-     * @param argv Argument values
-     */
-    Renice(int argc, char **argv);
+        /**
+         * Constructor
+         *
+         * @param argc Argument count
+         * @param argv Argument values
+         */
+        Renice(int argc, char **argv);
 
-    /**
-     * Destructor
-     */
-    virtual ~Renice();
+        /**
+         * Destructor
+         */
+        virtual ~Renice();
 
-    /**
-     * Execute the application.
-     *
-     * @return Result code
-     */
-    virtual Result exec();
+        /**
+         * Execute the application.
+         *
+         * @return Result code
+         */
+        virtual Result exec();
 };
 
 /**
