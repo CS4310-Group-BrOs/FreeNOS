@@ -12,9 +12,9 @@ Renice::Renice(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
     parser().setDescription("Alters the scheduling priority of a running process.");
-    parser().registerPositional("PRIORITY", "change the scheduling priority to this level")
+    parser().registerPositional("PRIORITY", "change the scheduling priority to this level");
     parser().registerPositional("PROCESS_ID", "change the sceduling priority of this process");
-    parser().registerFlag('n', "level", "changes current priority level to the specified")
+    parser().registerFlag('n', "priority", "change priority level");
 }
 
 Renice::~Renice()
