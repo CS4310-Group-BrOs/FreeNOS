@@ -124,6 +124,11 @@ class Process
     Priority getPriority();
 
     /**
+     * Set process priority level
+     */
+    void setPriority(int priority);
+
+    /**
      * Get process shares.
      *
      * @return Reference to memory shares.
