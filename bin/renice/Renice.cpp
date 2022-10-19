@@ -1,5 +1,4 @@
-// #include "sys/renice.h"
-#include <Macros.h>
+#include "sys/renice.h"
 #include <stdio.h>
 #include <unistd.h>
 #include "Renice.h"
@@ -7,7 +6,6 @@
 #include <string.h>
 #include <errno.h>
 #include <ProcessClient.h>
-#include <Process.h>
 
 Renice::Renice(int argc, char **argv)
     : POSIXApplication(argc, argv)
