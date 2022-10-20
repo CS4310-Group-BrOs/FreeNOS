@@ -163,8 +163,8 @@ API::Result ProcessCtlHandler(const ProcessID procID,
 
     case RenicePID:
         proc->setPriority(addr);
-        procs->dequeueProcess(proc, true);
-        procs->enqueueProcess(proc, true);
+        procs->stop(proc);
+        procs->resume(proc);
         procs->schedule();
         break;
 
