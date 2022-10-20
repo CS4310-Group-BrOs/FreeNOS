@@ -20,6 +20,8 @@
 #include <ListIterator.h>
 #include "Scheduler.h"
 #include "ProcessEvent.h"
+#include <stdlib.h>
+#include <string.h>
 #include "ProcessManager.h"
 
 ProcessManager::ProcessManager()
@@ -229,6 +231,7 @@ ProcessManager::Result ProcessManager::wait(Process *proc)
 
 ProcessManager::Result ProcessManager::stop(Process *proc)
 {
+    printf("inside the stop");
     const Process::State state = proc->getState();
     const Process::Result result = proc->stop();
     if (result != Process::Success)
@@ -249,6 +252,7 @@ ProcessManager::Result ProcessManager::stop(Process *proc)
 
 ProcessManager::Result ProcessManager::resume(Process *proc)
 {
+    printf("/ninside the resume");
     const Process::Result result = proc->resume();
     if (result != Process::Success)
     {
