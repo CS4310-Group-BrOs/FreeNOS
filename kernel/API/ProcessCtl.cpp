@@ -34,7 +34,6 @@ API::Result ProcessCtlHandler(const ProcessID procID,
     Process *proc = ZERO;
     ProcessInfo *info = (ProcessInfo *) addr;
     ProcessManager *procs = Kernel::instance()->getProcessManager();
-    ProcessManager *procs = Kernel::instance()->getProcessManager();
     Timer *timer;
 
     DEBUG("#" << procs->current()->getID() << " " << action << " -> " << procID << " (" << addr << ")");
