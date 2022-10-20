@@ -13,7 +13,7 @@
  * @param options Optional flags.
  * @return C 
  */
-extern C pid_t renicepid(pid_t pid, int *stat_loc, int priority, int options);
+extern C pid_t renicepid(pid_t pid, int priority, int *stat_loc, int options);
 
 /**
  * @}
