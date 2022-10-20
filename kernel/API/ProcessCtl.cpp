@@ -21,6 +21,7 @@
 #include <FreeNOS/Process.h>
 #include <FreeNOS/ProcessEvent.h>
 #include <FreeNOS/ProcessManager.h>
+#include <FreeNOS/Scheduler.h>
 #include <Log.h>
 #include "ProcessCtl.h"
 
@@ -32,6 +33,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
     const Arch::MemoryMap map;
     Process *proc = ZERO;
     ProcessInfo *info = (ProcessInfo *) addr;
+    ProcessManager *procs = Kernel::instance()->getProcessManager();
     ProcessManager *procs = Kernel::instance()->getProcessManager();
     Timer *timer;
 
