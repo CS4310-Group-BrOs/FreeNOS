@@ -250,7 +250,7 @@ ProcessManager::Result ProcessManager::stop(Process *proc)
 
 ProcessManager::Result ProcessManager::resume(Process *proc)
 {
-    DEBUG("/ninside resume ");
+    DEBUG("inside resume ");
     const Process::Result result = proc->resume();
     if (result != Process::Success)
     {

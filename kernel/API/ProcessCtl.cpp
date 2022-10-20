@@ -161,8 +161,8 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         return (API::Result) ((API::Success) | (procs->current()->getWaitResult() << 16));
 
     case RenicePID:
-        proc->setPriority(addr);
         procs->stop(proc);
+        proc->setPriority(addr);
         procs->resume(proc);
         procs->schedule();
         break;
