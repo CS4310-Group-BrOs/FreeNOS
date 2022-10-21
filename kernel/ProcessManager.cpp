@@ -229,7 +229,9 @@ ProcessManager::Result ProcessManager::reschedulePriority(Process *proc)
     if (state == Process::Ready)
     {
         ERROR("inside processManager, before calling deque/enque"); // needs delete
+        proc->stop();
         dequeueProcess(proc, true);
+        proc->resume();
         enqueueProcess(proc, true);
         ERROR("inside processManager, after calling deque/enque"); // needs delete
 
