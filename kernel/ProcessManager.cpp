@@ -299,7 +299,7 @@ ProcessManager::Result ProcessManager::sleep(const Timer::Info *timer, const boo
             return WakeupPending;
 
         case Process::Success: {
-            const Result res = dequeueProcess(m_current);
+            const Result res = dequeueProcess(m_current, true);
             if (res != Success)
             {
                 FATAL("failed to dequeue PID " << m_current->getID());
