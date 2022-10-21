@@ -125,6 +125,7 @@ class Process
 
     /**
      * Set process priority level
+     * @return Result code
      */
     Result stop();
 
