@@ -126,12 +126,12 @@ class Process
     /**
      * Set process priority level
      */
-    void setPriority(int priority);
+    Result stop();
 
     /**
-     * Get process shares.
+     * Resume execution when this process is stopped.
      *
-     * @return Reference to memory shares.
+     * @return Result code
      */
     ProcessShares & getShares();
 

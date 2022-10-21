@@ -161,9 +161,13 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         return (API::Result) ((API::Success) | (procs->current()->getWaitResult() << 16));
 
     case RenicePID:
-        procs->stop(proc);
-        proc->setPriority(addr);
-        procs->resume(proc);
+        if (proc->setPriority(addr) != ProcessManager::Success)
+        {
+            ERROR("failed to change process priority");
+            return API::IOError;
+        }
+        
+        procs->reschedulePriority(proc); 
         procs->schedule();
         break;
 

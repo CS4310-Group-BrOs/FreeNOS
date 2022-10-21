@@ -82,10 +82,24 @@ Process::Priority Process::getPriority() {
     return m_priority;
 }
 
-void Process::setPriority(int priority) {
-    if(priority <= 5 && priority >= 1) {
-        m_priority = (Priority) priority;
+if (m_state != Ready && m_state != Sleeping && m_state != Stopped)
+    {
+        ERROR("PID " << m_id << " has invalid state: " << (uint) m_state);
+        return InvalidArgument;
     }
+
+    m_state = Stopped;
+    return Success;
+
+Process::Result Process::setPriority(int priority) {
+    if(priority > 5 || priority < 1) {
+        ERROR("Priority " << priority << " is invalid : ";
+        return InvalidArgument;
+    }
+
+    m_priority = priority;
+    return Success;
+
 }
 
 Process::State Process::getState() const
