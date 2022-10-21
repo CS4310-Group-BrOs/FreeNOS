@@ -78,7 +78,7 @@ uint Process::getWaitResult() const
     return m_waitResult;
 }
 
-Process::Priority Process::getPriority() {
+Size Process::getPriority() {
     return m_priority;
 }
 

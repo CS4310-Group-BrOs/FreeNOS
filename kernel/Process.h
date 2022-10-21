@@ -121,7 +121,7 @@ class Process
     /**
      * Get priority level
      */
-    Priority getPriority();
+    Size getPriority();
 
 
     /**
