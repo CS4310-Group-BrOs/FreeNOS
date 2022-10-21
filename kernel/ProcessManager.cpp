@@ -218,22 +218,18 @@ void ProcessManager::setIdle(Process *proc)
 
 ProcessManager::Result ProcessManager::reschedulePriority(Process *proc)
 {
-     const Process::State state = proc->getState();
+    const Process::State state = proc->getState();
 
-     if (state == Process::Ready)
+    if (state == Process::Ready)
     {
         dequeueProcess(proc);
         enqueueProcess(proc);
 
+        return Success;
+
     }
 
-    if (m_current->wait(proc->getID()) != Process::Success)
-    {
-        ERROR("process ID " << m_current->getID() << " failed to wait");
-        return IOError;
-    }
-
-    return dequeueProcess(m_current);
+    return Success;
 }
 
 
