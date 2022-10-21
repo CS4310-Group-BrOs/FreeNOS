@@ -168,6 +168,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         }
         ERROR("Inside the Process controller, reschedule should be called here"); // needs deleted
         procs->reschedulePriority(proc); 
+        ERROR("Inside Processcontroller, after reschedule"); // needs deleted
         procs->schedule();
         break;
 
