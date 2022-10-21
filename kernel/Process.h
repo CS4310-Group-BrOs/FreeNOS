@@ -280,7 +280,7 @@ class Process
     uint m_waitResult;
 
     /** Priority level*/
-    Priority m_priority;
+    Size m_priority;
 
     /** Privilege level */
     bool m_privileged;
