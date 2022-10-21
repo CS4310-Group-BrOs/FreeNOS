@@ -222,8 +222,8 @@ ProcessManager::Result ProcessManager::reschedulePriority(Process *proc)
 
     if (state == Process::Ready)
     {
-        dequeueProcess(proc);
-        enqueueProcess(proc);
+        dequeueProcess(proc, true);
+        enqueueProcess(proc, true);
 
         return Success;
 
