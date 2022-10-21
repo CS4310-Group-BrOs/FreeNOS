@@ -126,7 +126,7 @@ class Process
     /**
      * Set process priority level
      */
-    void setPriority(int priority);
+    Result setPriority(int priority);
 
     /**
      * Get process shares.
