@@ -213,6 +213,15 @@ class Process
      */
     Result wait(ProcessID id);
 
+     /**
+     * change the process's priority level
+     *
+     * @param priority priority level to be set
+     *
+     * @return Result code
+     */
+    Result setPriority(Size priority);
+
     /**
      * Complete waiting for another Process.
      *

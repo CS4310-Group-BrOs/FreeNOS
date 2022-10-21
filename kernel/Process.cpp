@@ -82,7 +82,7 @@ Process::Priority Process::getPriority() {
     return m_priority;
 }
 
-Process::Result Process::setPriority(int priority) {
+Process::Result Process::setPriority(Size priority) {
     if(priority > 5 || priority < 1) {
         ERROR("Priority " << priority << " is invalid : ";
         return InvalidArgument;
