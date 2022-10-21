@@ -123,11 +123,6 @@ class Process
      */
     Priority getPriority();
 
-    /**
-     * Set process priority level
-     * @return Result code
-     */
-    Result stop();
 
     /**
      * Resume execution when this process is stopped.
