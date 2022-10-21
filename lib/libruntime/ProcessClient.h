@@ -85,6 +85,11 @@ class ProcessClient
      */
     ProcessID getParentID() const;
 
+    /**
+     * Setting priority of the process
+     *
+     * @return result
+     */
     Result setPriority(ProcessID pid, int priority);
 
     /**
