@@ -166,7 +166,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
             ERROR("failed to change process priority");
             return API::IOError;
         }
-        
+        ERROR("Inside the Process controller, reschedule should be called here"); // needs deleted
         procs->reschedulePriority(proc); 
         procs->schedule();
         break;
