@@ -34,7 +34,8 @@ ProcessID ProcessClient::getParentID() const
     return m_parent;
 }
 
-ProcessClient::Result ProcessClient::setPriority(ProcessID pid, Size priority) {
+ProcessClient::Result ProcessClient::setPriority(ProcessID pid, Size priority) const
+{
     ProcessCtl(pid, RenicePID, priority);
 
     return Success;
