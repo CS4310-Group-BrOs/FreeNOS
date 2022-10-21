@@ -37,6 +37,7 @@ ProcessID ProcessClient::getParentID() const
 ProcessClient::Result ProcessClient::setPriority(ProcessID pid, Priority priority) const
 {
     ProcessCtl(pid, RenicePID, priority);
+    ERROR("Inside ProcessClient, after procesCTL"); // needs deleted
 
     return Success;
 }

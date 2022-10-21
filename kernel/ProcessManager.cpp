@@ -220,11 +220,11 @@ ProcessManager::Result ProcessManager::reschedulePriority(Process *proc)
 {
     const Process::State state = proc->getState();
 
-    if (proc == m_idle)
-        m_idle = ZERO;
+    // if (proc == m_idle)
+    //     m_idle = ZERO;
 
-    if (proc == m_current)
-        m_current = ZERO;
+    // if (proc == m_current)
+    //     m_current = ZERO;
 
     if (state == Process::Ready)
     {
