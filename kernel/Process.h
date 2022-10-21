@@ -71,11 +71,11 @@ class Process
         Stopped
     };
 
-    enum Priority {
-      Min = 1,
-      Default = 3,
-      Max = 5
-    };
+    // enum Priority {
+    //   Min = 1,
+    //   Default = 3,
+    //   Max = 5
+    // };
 
   public:
 
@@ -121,7 +121,7 @@ class Process
     /**
      * Get priority level
      */
-    Size getPriority();
+    Priority getPriority();
 
 
     /**
@@ -220,7 +220,7 @@ class Process
      *
      * @return Result code
      */
-    Result setPriority(Size priority);
+    Result setPriority(Priority priority);
 
     /**
      * Complete waiting for another Process.
@@ -280,7 +280,7 @@ class Process
     uint m_waitResult;
 
     /** Priority level*/
-    Size m_priority;
+    Priority m_priority;
 
     /** Privilege level */
     bool m_privileged;

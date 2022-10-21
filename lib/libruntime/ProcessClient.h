@@ -92,7 +92,7 @@ class ProcessClient
      * @param priority priority level of the process
      * @return result code
      */
-    Result setPriority(ProcessID pid, Size priority) const;
+    Result setPriority(ProcessID pid, Priority priority) const;
 
     /**
      * Get process information by its ID.
