@@ -1,4 +1,4 @@
-#include "sys/kill.h"
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,7 +26,7 @@ Kill::Result Kill::exec() {
     const ProcessClient::Result result = process.processInfo(pid, info);
 
     if (result == ProcessClient::Success) {
-        killpid(pid, 0, 0);        
+        kill(pid, SIGKILL);    
     } else {
         // use FreeNOS convention for printing errors
         // (see Sleep.cpp:43,50 and ListFiles.cpp:88,98,140 for examples)

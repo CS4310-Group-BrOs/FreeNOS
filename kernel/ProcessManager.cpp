@@ -200,8 +200,7 @@ ProcessManager::Result ProcessManager::schedule()
     return Success;
 }
 
-ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority)
-{
+ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority) {
     if(proc->getState() == Process::Ready) {
         if(m_scheduler->dequeue(proc, true) != Scheduler::Success) {
             FATAL("failed to dequeue PID " << proc->getID());
