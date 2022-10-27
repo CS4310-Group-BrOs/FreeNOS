@@ -32,7 +32,7 @@ Wait::Result Wait::exec()
     } else {
         // use FreeNOS convention for printing errors
         // (see Sleep.cpp:43,50 and ListFiles.cpp:88,98,140 for examples)
-        ERROR("No process of ID '" << arguments().get("PROCESS_ID") << "' is found")
+        ERROR("No process of ID '" << arguments().get("PROCESS_ID") << "' is found");
         return InvalidArgument;
     }
     

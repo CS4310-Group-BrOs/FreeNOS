@@ -1,32 +1,17 @@
-/*
- * Copyright (C) 2009 Niek Linnenbank
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
+#include "sys/kill.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
 #include "Kill.h"
+#include <ProcessClient.h>
 
 Kill::Kill(int argc, char **argv)
     : POSIXApplication(argc, argv)
 {
     parser().setDescription("Send a kill signal to a process");
-    parser().registerPositional("PROCESS_ID", "Process id to send signal to");
+    parser().registerPositional("PROCESS_ID", "Process id to kill");
 }
 
 Kill::~Kill()
@@ -34,7 +19,21 @@ Kill::~Kill()
 }
 
 Kill::Result Kill::exec() {
+    const ProcessClient process;
+    ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
     
+    ProcessClient::Info info;
+    const ProcessClient::Result result = process.processInfo(pid, info);
+
+    if (result == ProcessClient::Success) {
+        killpid(pid, 0, 0);        
+    } else {
+        // use FreeNOS convention for printing errors
+        // (see Sleep.cpp:43,50 and ListFiles.cpp:88,98,140 for examples)
+        ERROR("No process of ID '" << arguments().get("PROCESS_ID") << "' is found");
+        return InvalidArgument;
+    }
+
     // Done
     return Success;
 }
