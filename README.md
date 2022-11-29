@@ -5,8 +5,9 @@
 ## Memory Management
 ### Layout in Physical Memory
 FreeNOS’s memory layout is defined in lib/libarch/MemoryMap.cpp. It defines eight memory regions. The regions are defined as follows:
-`typedef enum Region
-    {
+```c
+typedef enum Region
+{
         KernelData,    /**<< Kernel program data from libexec, e.g. code, bss, (ro)data */
         KernelPrivate, /**<< Kernel dynamic memory mappings */
         UserData,      /**<< User program data from libexec, e.g. code, bss, (ro)data */
@@ -15,8 +16,9 @@ FreeNOS’s memory layout is defined in lib/libarch/MemoryMap.cpp. It defines ei
         UserPrivate,   /**<< User private dynamic memory mappings */
         UserShare,     /**<< User shared dynamic memory mappings */
         UserArgs       /**<< Used for copying program arguments and file descriptors */
-    }
-Region;`
+}
+Region;
+```
 Virtual Memory Management is defined in /lib/libarch/intel/IntelPaging.cpp, and /lib/libarch/arm/ARMPaging.cpp for Intel and ARM processors respectively.
 
 ### Address Translation
