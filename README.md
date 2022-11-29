@@ -31,4 +31,5 @@ The processor’s in-built TLB is used for both ARM and Intel processors. Any ch
 ### Memory Allocator
 /lib/liballoc/BitAllocator.h:52
 `BitAllocator(const Range range, const Size chunkSize, u8 *bitmap = ZERO);`
+\
 FreeNOS allocates memory in an array of bits, in a specified range. A chunk size is passed as an argument that determines the size of each memory chunk. The bit array holds a 1 if the chunk is allocated and a 0 if the chunk is unallocated. A chunk can be allocated at the address that is next in line or at a specific address passed as an argument. A specified range can also allocate multiple chunks. A specified memory chunk can be released.
