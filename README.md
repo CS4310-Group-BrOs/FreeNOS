@@ -54,10 +54,14 @@ FreeNOS allocates memory in an array of bits, in a specified range. A chunk size
 
 ### Page Size
 /lib/libarch/intel/IntelConstant.h:82
-`/** Intel uses 4K pages. */
-#define PAGESIZE        4096`
+```c
+/** Intel uses 4K pages. */
+#define PAGESIZE        4096
+```
 
 /lib/libarch/arm/ARMConstant.h:96
-`/** ARM uses 4K pages. */
-#define PAGESIZE        4096`
+```c
+/** ARM uses 4K pages. */
+#define PAGESIZE        4096
+```
 
